@@ -1,8 +1,23 @@
 const http = require('http')
 const fs = require('fs')
 
+const _ = require('lodash')
+
 const server = http.createServer((req, res)=>{
-    console.log(req.url, req.method)
+    // console.log(req.url, req.method)
+
+    // lodash
+    const num = _.random(0, 10)
+    console.log(num)
+
+    const greet = _.once(() => {//Run this function ONLY once
+        console.log('Hello')
+    })
+
+    //Will become only one hello
+    greet()
+    greet()
+
 
     // Set header content type
     res.setHeader('Content-Type', 'text/html')
@@ -15,7 +30,7 @@ const server = http.createServer((req, res)=>{
         case '/about': path += '/about.html'
             res.statusCode = 200
                 break
-        case '/about-me': //redirection
+        case '/about-us': //redirection
                 res.statusCode = 301
                 res.setHeader('Location', './about')
                 res.end()
