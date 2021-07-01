@@ -60,3 +60,13 @@ app.use((req, res) => {
     res.status(404).render('404', {title: '404'})
 })
 
+/**
+ * Middleware - Code which runs (on the server) between getting a request and sending a response
+ * use() ande get('/', func) are example of middleware
+ * Middleware can be many, it runs from the top to bottom
+ * Middleware examples
+ * Logger middleware to log details of every request
+ * Authentication check middleware for protected routes
+ * Middleware to parse JSON data from requests
+ * Return 404 pages
+ */
